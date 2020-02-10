@@ -21,6 +21,10 @@ class HouseMemberSearch
       req.params['house'] = 'Gryffindor'
     end
 
-    JSON.parse(response.body, symbolize_names: true)
+    member_search_data = JSON.parse(response.body, symbolize_names: true)
+
+    member_search_data.map do |member_data|
+      Member.new(member_data)
+    end
   end
 end
