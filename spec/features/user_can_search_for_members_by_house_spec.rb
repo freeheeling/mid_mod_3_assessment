@@ -11,15 +11,15 @@ feature 'User can search members by house' do
 
     expect(current_path).to eq('/search')
 
-    expect(page).to have_content('21 for Gryffindor')
+    expect(page).to have_content('21 Members')
 
     expect(page).to have_css('.member', count: 21)
 
     within('.member') do
-      expect(page).to have_css('.name')
-      expect(page).to have_css('.role')
-      expect(page).to have_css('.house')
-      expect(page).to have_css('.patronus')
+      expect(first('.name').text).to_not be_empty
+      expect(first('.role').text).to_not be_empty
+      expect(first('.house').text).to_not be_empty
+      expect(first('.patronus').text).to_not be_empty
     end
   end
 end
