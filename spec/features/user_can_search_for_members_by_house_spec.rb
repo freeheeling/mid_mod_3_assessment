@@ -15,7 +15,7 @@ feature 'User can search members by house' do
 
     expect(page).to have_css('.member', count: 21)
 
-    within('.member') do
+    within(first('.member')) do
       expect(first('.name').text).to_not be_empty
       expect(first('.role').text).to_not be_empty
       expect(first('.house').text).to_not be_empty
