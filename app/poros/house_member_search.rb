@@ -1,6 +1,4 @@
 class HouseMemberSearch
-  attr_reader :house
-
   def initialize(house)
     @house = house
   end
@@ -10,6 +8,12 @@ class HouseMemberSearch
   end
 
   def members
+    service = PotterService.new
+    service.members_by_house.map do |member_data|
+      Member.new(member_data)
+    end
+
+
     conn = Faraday.new(url: 'https://www.potterapi.com/v1/') do |f|
       f.request :url_encoded
       f.adapter Faraday.default_adapter
@@ -27,4 +31,8 @@ class HouseMemberSearch
       Member.new(member_data)
     end
   end
+
+  private
+
+  attr_reader :house
 end
