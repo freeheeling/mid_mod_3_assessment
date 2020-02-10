@@ -25,8 +25,8 @@ And I Select “Gryffindor” from the select field
 (Note: Use the existing select field)
 And I click "Search For Members“
 Then I should be on page “/search”
-Then I should see a total of the number of members for that house. (21 for Gryffindor)
-And I should see a list of the 21 members of the Order of the Phoenix for house Gryffindor.
+Then I should see the total number of the order of the phoenix members that belong to Gryffindor. (i.e. 21)
+And I should see a list with the detailed information for the 21 members of the Order of the Phoenix for house Gryffindor.
 
 And for each of the members I should see:
 - The name of the member
